@@ -1,0 +1,25 @@
+{
+  "name": "the-scraping-machine",
+  "version": "0.0.1",
+  "description": "Let's make web scraping fun again!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UlisesGascon/the-scraping-machine.git"
+  },
+  "keywords": [
+    "utility"
+  ],
+  "author": {
+    "name": "Ulises Gascón",
+    "url": "https://github.com/ulisesGascon"
+  },
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/UlisesGascon/the-scraping-machine/issues"
+  },
+  "homepage": "https://github.com/UlisesGascon/the-scraping-machine#readme"
+}
