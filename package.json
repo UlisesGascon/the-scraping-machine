@@ -1,6 +1,6 @@
 {
   "name": "the-scraping-machine",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Let's make web scraping fun again!",
   "main": "index.js",
   "scripts": {
