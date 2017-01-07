@@ -1,0 +1,26 @@
+// Dependencies
+var fs = require('fs'),
+    Xray = require('x-ray');
+
+var x = Xray();
+
+{{#ifCond source_type '==' "url"}}
+var url = "{{url}}"
+{{else}}
+var url = fs.readFileSync("{{url}}", 'utf-8');
+{{/ifCond}}
+
+//Data
+var finalData = []
+var query = {};
+{{#data}}
+query["{{name}}"] = "{{query}}"
+{{/data}}
+
+// Main loop
+x(url, query)(function(err, obj) {
+    if(err) throw new Error('ERROR getting data!');
+    finalData.push(obj);
+    fs.writeFileSync('./{{{file_name}}}.json', JSON.stringify(finalData, null, 4));
+})
+

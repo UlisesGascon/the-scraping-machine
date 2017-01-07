@@ -13,9 +13,11 @@ require("./hbs_vitamines")(handlebars);
 // Validate Arguments from Script
 if(configFile){
     config = require(`./${configFile}`);
-    if (!language){
+    if (!language || language === "python"){
         language = "python";
-    }
+    } else {
+        language = "node";
+    };
 } else {
     throw new Error('MISSING configuration file!');
 }
@@ -33,19 +35,20 @@ console.log(`Code: ${language}`);
 
 // Render templates
 console.log("Rendering templates....");
-if(language === "python"){
-    var templateString = fs.readFileSync(`./templates/${language}.hbs`, 'utf-8');
-    var templateRendered = handlebars.compile(templateString);
-        templateRendered = templateRendered(config);
 
-    console.log("Creating your script file...");
-    fs.writeFileSync(`./${config.file_name}.py`, templateRendered);
-}
+var templateString = fs.readFileSync(`./templates/${language}.hbs`, 'utf-8');
+var templateRendered = handlebars.compile(templateString);
+templateRendered = templateRendered(config);
+
+console.log("Creating your script file...");
+fs.writeFileSync(`./${config.file_name}.${language === "python" ? "py" : "js"}`, templateRendered);
 
 // Executing current scraping script
 console.log("Running the script...");
 
-exec(`python3 ${config.file_name}.py`, function(error, stdout, stderr) {
+var cmd = language === "python" ? `python3 ${config.file_name}.py` : `node ${config.file_name}`
+
+exec(cmd, function(error, stdout, stderr) {
     if (stdout) console.log(`[exec]Process Child - stdout: ${stdout}`);
     if (stderr) console.log(`[exec]Process Child - stderr: ${stderr}`);
     if (error) console.log(`[exec]Process Child - error: ${error}`);
