@@ -1,10 +1,10 @@
 {
   "name": "the-scraping-machine",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Let's make web scraping fun again!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,17 @@
   },
   "homepage": "https://github.com/UlisesGascon/the-scraping-machine#readme",
   "dependencies": {
-    "handlebars": "4.0.6"
+    "chai": "3.5.0",
+    "chai-fs": "1.0.0",
+    "gulp": "3.9.1",
+    "gulp-debug": "3.0.0",
+    "gulp-eslint": "3.0.1",
+    "gulp-istanbul": "1.1.1",
+    "gulp-jsdoc3": "1.0.1",
+    "gulp-mocha": "3.0.1",
+    "gulp-util": "3.0.8",
+    "handlebars": "4.0.6",
+    "mocha": "3.1.2",
+    "x-ray": "2.3.1"
   }
 }
