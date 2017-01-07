@@ -1,0 +1,16 @@
+{
+	"source_type": "url",
+	"url": "http://google.es",
+	"file_name": "test",
+	"data": [
+		{
+			"name": "web-title",
+			"type": "selector",
+			"query": "title"
+		}, {
+			"name": "web2",
+			"type": "selector",
+			"query": "title"
+		}
+	]
+}
