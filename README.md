@@ -16,7 +16,7 @@
 ### Demo Concept
 
 1. You just need to define your needs in a JSON file, like [demo.json](demo.json)
-2. The you execute `node index demo.json` in order to start the process
+2. The you execute `node index demo.json` in order to start the process in [index.js](index.js)
     - First it validates the arguments and data
     - Then render all the info in the handlebars template, like [templates/python.hbs](templates/python.hbs)
 3. The script file is generated, like [google.py](google.py)
