@@ -1,0 +1,31 @@
+# Dependencies
+{{#ifCond source_type '==' "url"}}
+from urllib.request import urlopen
+{{/ifCond}}
+
+import json
+from bs4 import BeautifulSoup
+
+finalData = []
+currentData = {}
+
+# Soup inicialitation
+{{#ifCond source_type '==' "url"}}
+soup = BeautifulSoup(urlopen("{{url}}"), "html5lib")
+{{else}}
+soup = BeautifulSoup(open("{{url}}").read(), "html5lib")
+{{/ifCond}}
+
+# Main loop
+{{#data}}
+if soup.{{query}}.string:
+    currentData["{{name}}"] = soup.{{query}}.string
+{{/data}}
+
+# Add data collected
+finalData.append(currentData)
+
+# Store data collected in the file
+text_file = open("{{file_name}}.json", "w")
+text_file.write(json.dumps(finalData, sort_keys=True, ensure_ascii=False, indent=4))
+text_file.close()
