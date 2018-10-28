@@ -3,6 +3,9 @@
 ![shieldsIO](https://img.shields.io/github/license/UlisesGascon/the-scraping-machine.svg)
 ![shieldsIO](https://img.shields.io/david/UlisesGascon/the-scraping-machine.svg)
 
+### :warning: WARNING: this repo is not maintained anymore
+
+
 # The scraping machine
 
 **Under development - More news soon**
